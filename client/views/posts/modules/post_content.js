@@ -12,6 +12,7 @@ Template[getTemplate('postContent')].helpers({
     return getTemplate(this.template);
   },
   sourceLink: function(){
+    return "/posts/" + this._id;
     return !!this.url ? this.url : "/posts/"+this._id;
   },
   current_domain: function(){
