@@ -8,6 +8,7 @@ can = {};
 //
 // return true if all is well, false
 can.view = function (user) {
+  // debugger;
   if (getSetting('requireViewInvite', false)) {
 
     if (Meteor.isClient) {
@@ -15,6 +16,7 @@ can.view = function (user) {
       user = (typeof user === 'undefined') ? Meteor.user() : user;
     }
 
+    return user && ((user.invitedByName && user.invitedByName.length > 0) || isAdmin(user) || isInvited(user));
     return (!!user && (isAdmin(user) || isInvited(user)));
   }
   return true;
