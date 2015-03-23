@@ -3,7 +3,8 @@ body {
   background-image: url("http://www.ihdwal.com/wp-content/uploads/2013/10/blurry-night-city-lights.jpg");
   background-size: 100% auto;
   background-position: fixed;
-
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
 }
 
 .welcome-message {
