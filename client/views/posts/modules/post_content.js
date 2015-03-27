@@ -11,6 +11,13 @@ Template[getTemplate('postContent')].helpers({
   getTemplate: function () {
     return getTemplate(this.template);
   },
+  postBody: function(){
+    var maxLen = 400;
+    if (this.body.length > maxLen) {
+      return this.body.substring(0,maxLen-3) + "...";
+    }
+    return this.body;
+  },
   sourceLink: function(){
     return "/posts/" + this._id;
     return !!this.url ? this.url : "/posts/"+this._id;

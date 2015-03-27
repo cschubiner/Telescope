@@ -7,6 +7,8 @@ Package.on_use(function (api) {
   api.addFiles([
     'lib/client/stylesheets/screen.scss',
     'lib/client/templates/new_posts_list.html',
+    'lib/client/templates/new_post_item.html',
+    'lib/client/templates/new_post_content.html',
     'lib/client/kepler.js',
     ], ['client']);
 

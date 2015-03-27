@@ -1,4 +1,6 @@
 templates["posts_list"] = "newPostsList";
+templates["post_item"] = "new_post_item";
+templates["postContent"] = "newPostContent";
 
 // var customProperty = {
 //   propertyName: 'customProperty',
