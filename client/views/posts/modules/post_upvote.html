@@ -1,13 +1,18 @@
 <template name="postUpvote">
-  {{#if upvoted}}
-    <span class="upvote-link voted action" title="{{_ "upvoted"}}">
-      <i class="icon-check action-icon" aria-hidden></i>
-      <span class="sr-only">{{_ "upvoted"}}</span>
-    </span>
+  {{#if voted}}
+      <a class="upvote-link unvotelinkclay voted action" href="#" title="{{_ "unvoted"}}" style="cursor: pointer;">
+        <i class="icon-check action-icon" aria-hidden></i>
+        <span class="sr-only">{{_ "upvoted"}}</span>
+      </a>
   {{else}}
-    <a class="upvote-link not-voted action" href="#" title="{{_ "upvote_"}}">
+    <a class="upvote-link upvotelinkclay not-voted action" href="#" title="{{_ "upvote_"}}">
       <i class="icon-up action-icon" aria-hidden="true"></i>
       <span class="sr-only">{{_ "upvote_"}}</span>
+    </a>
+    <br/>
+    <a class="upvote-link downvotelinkclay not-voted action" href="#" title="{{_ "downvote_"}}">
+      <i class="icon-down action-icon" aria-hidden="true"></i>
+      <span class="sr-only">{{_ "downvote_"}}</span>
     </a>
   {{/if}}
 </template>
