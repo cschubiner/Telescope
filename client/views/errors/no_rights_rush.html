@@ -1,12 +1,12 @@
-<template name="post_submit">
-
-    <a href="javascript:void(take_snapshot())">Take Snapshot</a>
+<template name="no_rights_rush">
   <div class="grid-small grid-block dialog">
-    <p>Instructions: Fill out the form below and then click "Submit".</p>
-    <p>Ignore the thumbnail area or any 404 error</p>
+    <p>Rushee successfully added!</p>
+  </div>
+  <div class="grid-small grid-block dialog">
+      <p>Instructions: Fill out the form below and then click "Submit".</p>
+      <p>Ignore the thumbnail area or any 404 error</p>
   </div>
   <div class="grid grid-module">
     {{> quickForm collection="Posts" id="submitPostForm" template="telescope" label-class="control-label" input-col-class="controls" type="method" meteormethod="submitPost"}}
   </div>
-
 </template>

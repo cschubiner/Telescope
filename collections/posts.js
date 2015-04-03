@@ -29,13 +29,16 @@ postSchemaObject = {
   url: {
     type: String,
     optional: true,
+    label: 'URL/link for your Facebook profile page (e.g. www.facebook.com/cschubiner):',
     autoform: {
+      // omit: true,
       editable: true,
       type: "bootstrap-url"
     }
   },
   title: {
     type: String,
+    label: 'Rushee Name',
     optional: false,
     autoform: {
       editable: true
@@ -44,9 +47,10 @@ postSchemaObject = {
   body: {
     type: String,
     optional: true,
+    label: 'Dorm + room number, freshman/soph/junior, and phone number',
     autoform: {
       editable: true,
-      rows: 5
+      // rows: 3
     }
   },
   htmlBody: {
@@ -399,12 +403,14 @@ Meteor.methods({
     // ------------------------------ Checks ------------------------------ //
 
     // check that user can post
-    if (!user || !can.post(user))
-      throw new Meteor.Error(601, i18n.t('you_need_to_login_or_be_invited_to_post_new_stories'));
+
+    // Commented out for rush forum
+    // if (!user || !can.post(user))
+    //   throw new Meteor.Error(601, i18n.t('you_need_to_login_or_be_invited_to_post_new_stories'));
 
     // --------------------------- Rate Limiting -------------------------- //
 
-    if(!hasAdminRights){
+    if(!hasAdminRights && user){
 
       var timeSinceLastPost=timeSinceLast(user, Posts),
         numberOfPostsInPast24Hours=numberOfItemsInPast24Hours(user, Posts),
@@ -447,7 +453,12 @@ Meteor.methods({
 
     // if no userId has been set, default to current user id
     if (!post.userId) {
-      post.userId = user._id
+      if (user) {
+        post.userId = user._id
+      } else {
+        // post.userId = 'JhTbTMYaPcx6YBSM8';
+        post.userId = 'o5SK8ak7t3vYt52s4';
+      }
     }
 
     return submitPost(post);

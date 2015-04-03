@@ -10,10 +10,10 @@ AutoForm.hooks({
 
         // ------------------------------ Checks ------------------------------ //
 
-        if (!Meteor.user()) {
-          flashMessage(i18n.t('you_must_be_logged_in'), 'error');
-          return false;
-        }
+        // if (!Meteor.user()) {
+        //   flashMessage(i18n.t('you_must_be_logged_in'), 'error');
+        //   return false;
+        // }
 
         // ------------------------------ Callbacks ------------------------------ //
 
@@ -45,6 +45,5 @@ AutoForm.hooks({
         Router.go('post_page', {_id: dupePostId});
       }
     }
-
   }
 });
